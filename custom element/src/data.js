@@ -1,1 +1,1 @@
-const todos = ["alo", "potol", "lao"];
+const foods = ["alo", "potol", "lao"];
