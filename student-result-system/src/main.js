@@ -1,4 +1,5 @@
 const student_create_form = document.getElementById("student_create_form");
+const add_student_close = document.getElementById("add_student_close");
 const msg = document.querySelector(".msg");
 const msgEdit = document.querySelector(".msg-edit");
 const studentsList = document.querySelector(".all-students-data");
@@ -126,7 +127,7 @@ student_edit_result_form.onsubmit = (e) => {
   const form_data = new FormData(e.target);
   const data = Object.fromEntries(form_data.entries());
 
-  let oldData = getDataLS("students");
+  const oldData = getDataLS("students");
 
   oldData[oldData.findIndex((item) => item.id === data.id)] = {
     ...oldData[oldData.findIndex((item) => item.id === data.id)],
@@ -261,5 +262,8 @@ student_create_form.onsubmit = (e) => {
       "success"
     );
     getStudents();
+    setTimeout(() => {
+      add_student_close.click();
+    }, 5000);
   }
 };
